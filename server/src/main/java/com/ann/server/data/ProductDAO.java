@@ -15,8 +15,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Класс для работы с данными о квартирах в базе данных.
- * Включает методы для создания таблицы, вставки, удаления, обновления и получения данных о квартирах.
+ * Класс для работы с данными о продуктах в базе данных.
+ * Включает методы для создания таблицы, вставки, удаления, обновления и получения данных о продуктах.
  */
 public class ProductDAO {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductDAO.class);
@@ -52,7 +52,7 @@ public class ProductDAO {
     // SQL-запрос для обновления данных о продукте
     private static final String UPDATE_PRODUCT_SQL = "UPDATE products SET " +
             "name = ?, coordinates_x = ?, coordinates_y = ?, creation_date = ?, price = ?, " +
-            "unitOfMeasure = ?, organization_name = ?, organization_fullname = ?, house_year = ?, " +
+            "unitOfMeasure = ?, organization_name = ?, organization_fullname = ?, organization_year = ?, " +
             "username = ? " +
             "WHERE id = ?";
 
@@ -76,7 +76,7 @@ public class ProductDAO {
     /**
      * Метод для получения всех квартир из базы данных.
      * @param connection Подключение к базе данных
-     * @return ResultSet с данными о всех квартирах
+     * @return ResultSet с данными о всех продуктах
      * @throws SQLException Если возникает ошибка при выполнении SQL-запроса
      */
     public ResultSet getAllProducts(Connection connection) throws SQLException {
@@ -140,7 +140,7 @@ public class ProductDAO {
             }
         } catch (Exception e) {
             // Логируем ошибку
-            LOGGER.error("Ошибка при вставке новой квартиры в базу данных", e);
+            LOGGER.error("Ошибка при вставке нового элемента в базу данных", e);
         }
         return -1;
     }

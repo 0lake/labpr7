@@ -20,7 +20,7 @@ import static com.ann.server.managers.ConnectionManager.*;
  */
 public class DatabaseManager {
     private static final UserDAO userDAO = new UserDAO();
-    private static final ProductDAO flatDAO = new ProductDAO();
+    private static final ProductDAO productDAO = new ProductDAO();
     private static final Logger logger = LoggerFactory.getLogger("DatabaseManager");
     private static final ThreadLocal<Connection> threadLocalConnection = new ThreadLocal<>();
 
@@ -86,7 +86,7 @@ public class DatabaseManager {
         if (connection != null) {
             try {
                 userDAO.createUsersTable(connection);
-                flatDAO.createProductsTable(connection);
+                productDAO.createProductsTable(connection);
                 logger.info("Таблицы успешно созданы (если они не существовали).");
             } catch (SQLException e) {
                 throw new RuntimeException("Ошибка при создании таблиц: ", e);
