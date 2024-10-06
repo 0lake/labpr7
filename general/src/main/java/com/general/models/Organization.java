@@ -21,11 +21,9 @@ public class Organization implements Validatable, Serializable {
     @NonNull
     private String name; // Поле не может быть null
     private Integer year; // Значение поля должно быть больше 0
-    private String fullname;
 
-    public Organization(@NonNull String name, String fullname, Integer year) {
+    public Organization(@NonNull String name, Integer year) {
         this.name = name;
-        this.fullname = fullname;
         this.year = year;
     }
 
@@ -36,8 +34,7 @@ public class Organization implements Validatable, Serializable {
     @Override
     public boolean validate() {
         return name != null && !name.isEmpty() &&
-                year != null && year > 0 &&
-                fullname != null && !fullname.isEmpty();
+                year != null && year > 0;
     }
 
     @Override
@@ -46,20 +43,18 @@ public class Organization implements Validatable, Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Organization organization = (Organization) o;
         return  Objects.equals(name, organization.name) &&
-                Objects.equals(year, organization.year) &&
-                Objects.equals(fullname, organization.fullname);
+                Objects.equals(year, organization.year);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, fullname, year);
+        return Objects.hash(name, year);
     }
 
     @Override
     public String toString() {
         return "Product{" +
                 "name='" + name + '\'' +
-                ", fullname='" + fullname + '\''+
                 ", year=" + year +
                 '}';
     }

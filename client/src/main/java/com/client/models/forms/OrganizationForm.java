@@ -41,7 +41,6 @@ public class OrganizationForm extends Form<Organization> {
         try {
             var organization = new Organization(
                     input,
-                    input,
                     askYear()
             );
             if (!organization.validate()) throw new InvalidFormException();

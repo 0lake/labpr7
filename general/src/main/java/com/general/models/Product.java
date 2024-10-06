@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 /**
- * Класс, представляющий сущность "Продукт".
+ * Класс, представляющий сущность "продукт".
  */
 @EqualsAndHashCode(callSuper = false)
 @Data

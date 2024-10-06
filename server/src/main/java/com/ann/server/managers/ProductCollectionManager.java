@@ -73,10 +73,10 @@ public class ProductCollectionManager extends CollectionManager<Product> {
     }
 
     /**
-     * Устанавливает новую коллекцию объектов product.
+     * Устанавливает новую коллекцию объектов Product.
      * Используется блокировка для синхронизации доступа к коллекции.
      *
-     * @param collection коллекция объектов product для установки.
+     * @param collection коллекция объектов Product для установки.
      */
     private void setCollection(Collection<Product> collection) {
         lock.lock(); // Начало критической секции

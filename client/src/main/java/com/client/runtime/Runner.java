@@ -164,7 +164,7 @@ public class Runner {
                         console.printError("Неправильное количество аргументов!");
                         console.println("Правильное использование, используйте help для получения списка команд и их аргументов");
                     } catch (InvalidFormException exception) {
-                        console.printError("Поля продукта не валидны! Продукт не создан!");
+                        console.printError("Поля квартиры не валидны! продукт не создана!");
                     } catch (IncorrectInputInScriptException ignored) {
                     }
                 }
@@ -173,7 +173,7 @@ public class Runner {
                         if (userCommand[1].isEmpty())
                             throw new WrongAmountOfElementsException();
                         var id = Long.parseLong(userCommand[1]);
-                        console.println("* Создание нового продукта:");
+                        console.println("* Создание новой квартиры:");
                         var product = (new ProductForm(console)).build();
                         product.setId(id);
                         response = tcpClient.sendCommand(new Request(userCommand[0], product));
@@ -181,7 +181,7 @@ public class Runner {
                         console.printError("Неправильное количество аргументов!");
                         console.println("Правильное использование, используйте help для получения списка команд и их аргументов");
                     } catch (InvalidFormException exception) {
-                        console.printError("Поля продукта не валидны! Продукт не создан!");
+                        console.printError("Поля квартиры не валидны! продукт не создана!");
                     } catch (IncorrectInputInScriptException ignored) {
                     }
                 }

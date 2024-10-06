@@ -15,8 +15,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Класс для работы с данными о продуктах в базе данных.
- * Включает методы для создания таблицы, вставки, удаления, обновления и получения данных о продуктах.
+ * Класс для работы с данными о продуктх в базе данных.
+ * Включает методы для создания таблицы, вставки, удаления, обновления и получения данных о продуктх.
  */
 public class ProductDAO {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductDAO.class);
@@ -31,7 +31,6 @@ public class ProductDAO {
             "price INT CHECK (price > 0), " +
             "unitOfMeasure VARCHAR(20) CHECK (unitOfMeasure IN ('METERS', 'GRAMS', 'CENTIMETERS', 'SQUARE_METERS')), " +
             "organization_name VARCHAR NOT NULL, " +
-            "organization_fullname VARCHAR NOT NULL, " +
             "organization_year INT CHECK (organization_year IS NULL OR organization_year > 0), " +
             "username VARCHAR(50), " +
             "FOREIGN KEY (username) REFERENCES users(username)" +
@@ -43,8 +42,8 @@ public class ProductDAO {
     // SQL-запрос для вставки нового продукта
     private static final String INSERT_PRODUCT_SQL = "INSERT INTO products (" +
             "name, coordinates_x, coordinates_y, creation_date, price, unitOfMeasure, " +
-            "organization_name, organization_fullname, organization_year, username) " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            "organization_name, organization_year, username) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // SQL-запрос для удаления продукта по ID
     private static final String REMOVE_PRODUCT_SQL = "DELETE FROM products WHERE id = ?";
@@ -52,7 +51,7 @@ public class ProductDAO {
     // SQL-запрос для обновления данных о продукте
     private static final String UPDATE_PRODUCT_SQL = "UPDATE products SET " +
             "name = ?, coordinates_x = ?, coordinates_y = ?, creation_date = ?, price = ?, " +
-            "unitOfMeasure = ?, organization_name = ?, organization_fullname = ?, organization_year = ?, " +
+            "unitOfMeasure = ?, organization_name = ?, organization_year = ?, " +
             "username = ? " +
             "WHERE id = ?";
 
@@ -76,7 +75,7 @@ public class ProductDAO {
     /**
      * Метод для получения всех квартир из базы данных.
      * @param connection Подключение к базе данных
-     * @return ResultSet с данными о всех продуктах
+     * @return ResultSet с данными о всех продуктх
      * @throws SQLException Если возникает ошибка при выполнении SQL-запроса
      */
     public ResultSet getAllProducts(Connection connection) throws SQLException {
@@ -125,9 +124,8 @@ public class ProductDAO {
             preparedStatement.setInt(5, product.getPrice());
             preparedStatement.setString(6, product.getUnitOfMeasure().toString());
             preparedStatement.setString(7, product.getOrganization().getName());
-            preparedStatement.setString(8, product.getOrganization().getFullname());
-            preparedStatement.setInt(9, product.getOrganization().getYear());
-            preparedStatement.setString(10, product.getUsername());
+            preparedStatement.setInt(8, product.getOrganization().getYear());
+            preparedStatement.setString(9, product.getUsername());
 
             // Выполняем запрос и получаем ID новой записи
             int affectedRows = preparedStatement.executeUpdate();
@@ -140,7 +138,7 @@ public class ProductDAO {
             }
         } catch (Exception e) {
             // Логируем ошибку
-            LOGGER.error("Ошибка при вставке нового элемента в базу данных", e);
+            LOGGER.error("Ошибка при вставке новой квартиры в базу данных", e);
         }
         return -1;
     }
@@ -177,10 +175,9 @@ public class ProductDAO {
         preparedStatement.setInt(5, product.getPrice());
         preparedStatement.setString(6, product.getUnitOfMeasure().toString());
         preparedStatement.setString(7, product.getOrganization().getName());
-        preparedStatement.setString(8, product.getOrganization().getFullname());
-        preparedStatement.setInt(9, product.getOrganization().getYear());
-        preparedStatement.setString(10, product.getUsername());
-        preparedStatement.setLong(11, product.getId());
+        preparedStatement.setInt(8, product.getOrganization().getYear());
+        preparedStatement.setString(9, product.getUsername());
+        preparedStatement.setLong(10, product.getId());
 
         int affectedRows = preparedStatement.executeUpdate();
         return affectedRows > 0;
@@ -224,14 +221,13 @@ public class ProductDAO {
         UnitOfMeasure unitOfMeasure = unitOfMeasureString != null ? UnitOfMeasure.valueOf(unitOfMeasureString) : null;
 
         String organizationName = resultSet.getString("organization_name");
-        String organizationFullname = resultSet.getString("organization_fullname");
 
         Integer organizationYear = resultSet.getInt("organization_year");
         if (resultSet.wasNull()) {
             organizationYear = null;
         }
 
-        Organization org = new Organization(organizationName, organizationFullname, organizationYear);
+        Organization org = new Organization(organizationName, organizationYear);
 
         String username = resultSet.getString("username");
         if (resultSet.wasNull()) {
