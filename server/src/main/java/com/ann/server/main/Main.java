@@ -22,7 +22,7 @@ import static com.ann.server.managers.DatabaseManager.createDatabaseIfNotExists;
 
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
-    private static final int PORT = 28374;
+    private static final int PORT = 28355;
 
     public static void main(String[] args) {
         Interrogator.setUserScanner(new Scanner(System.in));
