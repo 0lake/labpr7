@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeoutException;
 
 public class Main {
-    public static final int PORT = 28359;
+    public static final int PORT = 28358;
     public static void main(String[] args) {
         var console = new StandardConsole();
         Interrogator.setUserScanner(new Scanner(System.in));
