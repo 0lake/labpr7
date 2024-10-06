@@ -1,0 +1,70 @@
+[
+  {
+    "name": "молоко",
+    "coordinates": {
+      "x": 2,
+      "y": 2.0
+    },
+    "creationDate": "2024-09-25",
+    "price": 85,
+    "unitOfMeasure": "GRAMS",
+    "organization": {
+      "name": "Простоквашино",
+      "fullname": "ЗАО Простоквашино",
+      "year": 2002
+    },
+    "userId": null,
+    "id": 3
+  },
+  {
+    "name": "Комильфо",
+    "coordinates": {
+      "x": 5,
+      "y": 7.0
+    },
+    "creationDate": "2024-09-21",
+    "price": 235,
+    "unitOfMeasure": "GRAMS",
+    "organization": {
+      "name": "Нестле",
+      "fullname": "Нестле",
+      "year": 1866
+    },
+    "userId": null,
+    "id": 2
+    },
+  {
+    "name": "Пармезан",
+    "coordinates": {
+      "x": 12,
+      "y": 2.8
+    },
+    "creationDate": "2024-09-05",
+    "price": 455,
+    "unitOfMeasure": "GRAMS",
+    "organization": {
+      "name": "Dolce",
+      "fullname": "Dolce",
+      "year": 2007
+    },
+    "userId": null,
+    "id": 1
+  },
+  {
+    "name": "Овсяное печенье",
+    "coordinates": {
+      "x": 35,
+      "y": 18.4
+    },
+    "creationDate": "2024-09-15",
+    "price": 178,
+    "unitOfMeasure": "SQUARE_METERS",
+    "organization": {
+      "name": "Посиделкино",
+      "fullname": "Посиделкино",
+      "year": 2000
+    },
+    "userId": null,
+    "id": 4
+  }
+]
