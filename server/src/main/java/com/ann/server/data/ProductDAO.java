@@ -73,9 +73,9 @@ public class ProductDAO {
     }
 
     /**
-     * Метод для получения всех квартир из базы данных.
+     * Метод для получения всех продуктов из базы данных.
      * @param connection Подключение к базе данных
-     * @return ResultSet с данными о всех продуктх
+     * @return ResultSet с данными о всех продуктфх
      * @throws SQLException Если возникает ошибка при выполнении SQL-запроса
      */
     public ResultSet getAllProducts(Connection connection) throws SQLException {
@@ -108,7 +108,7 @@ public class ProductDAO {
     }
 
     /**
-     * Метод для вставки новой квартиры в базу данных.
+     * Метод для вставки нового продукта в базу данных.
      * @param product Объект Products с данными о продукте
      * @return ID вставленного продукта или -1 в случае ошибки
      */
@@ -138,7 +138,7 @@ public class ProductDAO {
             }
         } catch (Exception e) {
             // Логируем ошибку
-            LOGGER.error("Ошибка при вставке новой квартиры в базу данных", e);
+            LOGGER.error("Ошибка при вставке нового продукта в базу данных", e);
         }
         return -1;
     }

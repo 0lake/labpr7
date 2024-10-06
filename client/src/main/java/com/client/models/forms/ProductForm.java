@@ -16,7 +16,7 @@ import com.general.models.forms.Form;
 import java.util.NoSuchElementException;
 
 /**
- * Форма квартиры.
+ * Форма продукта.
  */
 
 public class ProductForm extends Form<Product> {
@@ -55,7 +55,7 @@ public class ProductForm extends Form<Product> {
                 throw new IncorrectInputInScriptException();
             } catch (MustBeNotEmptyException exception) {
                 console.printError("Название не может быть пустым!");
-                // Предлагаем пользователю ввести название квартиры заново
+                // Предлагаем пользователю ввести название продукта заново
                 continue;
             } catch (IllegalStateException exception) {
                 console.printError("Непредвиденная ошибка!");
